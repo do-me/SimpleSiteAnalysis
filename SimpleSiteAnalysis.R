@@ -1,6 +1,6 @@
 ##############################  
 ##   Simple Site Analysis   ##  IMPORTANT: TO EXECUTE 
-##   by do-me 12.01.2019    ##  WITHSOURCE BUTTON
+##   by do-me 12.01.2019    ##  WITH SOURCE BUTTON
 ##############################   
 
 if (!require(geojsonio)) {
@@ -73,7 +73,7 @@ getFactors <- function(){
   invisible(c(Fac1=tclvalue(Fac1), Fac2=tclvalue(Fac2),Fac3=tclvalue(Fac3),Fac4=tclvalue(Fac4),Fac5=tclvalue(Fac5),Fac6=tclvalue(Fac6)))
 }
 
-# execute function and actually get user´s input
+# execute function and actually get userÂ´s input
 userFactors <- getFactors()
 
 # the importance factors
@@ -93,7 +93,7 @@ Ortsteile <- geojson_read(f3, what = "sp")
 Schulen <- geojson_read(f4, what = "sp")
 Wohnheime <- geojson_read(f5, what = "sp")
 
-plot(Ortsteile) # plot district borders (plot enginge doesn´t work in the end without this step)
+plot(Ortsteile) # plot district borders (plot enginge doesnÂ´t work in the end without this step)
 
 ###############################################################################
 
@@ -111,7 +111,7 @@ for(i in Ortsteile$ortsteil_bez) # for every "ortsteil_bez" means Auerberg, Bonn
   w<-Wohnheime[Ortsteile[Ortsteile$ortsteil_bez == i, ],] # same for Wohnheime
   NrWohn<-length(w)
   
-  # calculate color shade (gray0-gray100) by user´s input factors
+  # calculate color shade (gray0-gray100) by userÂ´s input factors
   # endscore = relationaler Zielerreichungswert zwischen den Ortsteilen, between 0 and 1
   valla<-c(valla,((NrSchul*f1+NrWohn*f2)/(area(Ortsteile)[counter])))
 }            
@@ -156,13 +156,13 @@ dev.print(png, f6, width=800, height=800)
 tt<-tktoplevel()
 tkwm.title(tt, "Important Information")
 tkgrid(tklabel(tt,text=
-                 "The values seen in the lower black window (`console´) represent the following: 
+                 "The values seen in the lower black window (`consoleÂ´) represent the following: 
                E = relative degree of fulfilment for particular district where 0% is worst and 100% is best district.
                Z = scorepoints per squarekilometer for particular district 
                
                The plot in the lower right window is based on E-values. 
                The higher the degree of fulfilment in relation to other districts the darker the district.
-               `Schulen´ are represented by red dots, `Studentenwohnheime´ by blue dots."
+               `SchulenÂ´ are represented by red dots, `StudentenwohnheimeÂ´ by blue dots."
 ))
 OnOK <- function()
 {
